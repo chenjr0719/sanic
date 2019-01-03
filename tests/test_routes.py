@@ -768,8 +768,8 @@ def test_remove_static_route(app):
     request, response = app.test_client.get("/test2")
     assert response.status == 200
 
-    app.remove_route("/test")
     app.remove_route("/test2")
+    app.remove_route("/test")
 
     request, response = app.test_client.get("/test")
     assert response.status == 404
